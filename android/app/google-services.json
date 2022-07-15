@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "381960963895",
+    "firebase_url": "https://cardnesia-default-rtdb.firebaseio.com",
+    "project_id": "cardnesia",
+    "storage_bucket": "cardnesia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381960963895:android:03dcfb73129004d7583cb2",
+        "android_client_info": {
+          "package_name": "com.example.cardnesia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381960963895-u24bibnvlcbgbpbnbu53a6v75spqi3f9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3UIJGJydFory1YXXlsGI43lq5RLtKYlk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381960963895-u24bibnvlcbgbpbnbu53a6v75spqi3f9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
