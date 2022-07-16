@@ -104,9 +104,14 @@ class _NovaCartaState extends State<NovaCarta> {
                     padding: const EdgeInsets.only(top: 12.0),
                     child: TextFormField(
                       controller: controllers['referencia'],
+                      onChanged: (value) {
+                        controllers['referencia']!.text =
+                            controllers['referencia']!.text.replaceAll(' ', '');
+                      },
                       decoration: InputDecoration(
-                        label: Text(toFirstUpper('referência')),
-                      ),
+                          label: Text(toFirstUpper('referência')),
+                          helperText:
+                              'isso será usado para referenciá-la nas descrições de outras cartas.'),
                     ),
                   ),
                   Padding(

@@ -22,6 +22,7 @@ class _PaginaDeCartasState extends State<PaginaDeCartas> {
     super.initState();
   }
 
+  late final QuerySnapshot<Map<String, dynamic>> query;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +33,8 @@ class _PaginaDeCartasState extends State<PaginaDeCartas> {
       body: FutureBuilder(
         future: () async {
           PaginaDeCartas.collection = db.collection('cartas');
-          return PaginaDeCartas.collection.get();
+          query = await PaginaDeCartas.collection.get();
+          return query;
         }(),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
@@ -47,11 +49,9 @@ class _PaginaDeCartasState extends State<PaginaDeCartas> {
               return const Loading(message: 'Carregando Cartas...');
             case ConnectionState.active:
             case ConnectionState.done:
-              final event =
-                  snapshot.data as QuerySnapshot<Map<String, dynamic>>;
               return GradeDeCartas(
                 cartas: [
-                  for (final doc in event.docs) Carta.fromMap(doc.data())
+                  for (final doc in query.docs) Carta.fromMap(doc.data())
                 ],
               );
           }
@@ -64,7 +64,11 @@ class _PaginaDeCartasState extends State<PaginaDeCartas> {
             MaterialPageRoute(
               builder: (context) => const NovaCarta(),
             ),
-          ).then((_) => Navigator.popAndPushNamed(context, '/'));
+          ).then(
+            (_) => setState(
+              () async => query = await PaginaDeCartas.collection.get(),
+            ),
+          );
         },
         tooltip: 'Nova Carta',
         child: const Icon(Icons.add_card_rounded),
