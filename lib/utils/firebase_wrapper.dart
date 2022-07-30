@@ -3,10 +3,9 @@ import 'package:cardnesia/utils/loading.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-class FirebaseConnectionWrapper extends StatelessWidget {
+class EncapsuladorFirebase extends StatelessWidget {
   final Widget page;
-  const FirebaseConnectionWrapper({Key? key, required this.page})
-      : super(key: key);
+  const EncapsuladorFirebase({Key? key, required this.page}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

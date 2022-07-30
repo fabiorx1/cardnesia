@@ -1,1 +1,0 @@
-enum Dominios { submundo, indefinido }
